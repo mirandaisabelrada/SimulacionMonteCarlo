@@ -38,7 +38,7 @@ namespace SimulacionMonteCarlo
             Random valor_aleatorio = new Random();
             AlgoritmoSimulacionMontecarlo sim = new AlgoritmoSimulacionMontecarlo();
             (int x_b, int v_b) = sim.Simulacion(n, n1, minimo, maximo, valor_aleatorio);
-            x_b = x_b / n;
+            x_b = x_b/n;
             v_b = v_b / (n * (n - 1)) - ((x_b * x_b) / (n - 1));
             MessageBox.Show("El valor de X_barra es:" + x_b + "\n"+ "El valor de V_barra es:" + v_b + "\n");
 
