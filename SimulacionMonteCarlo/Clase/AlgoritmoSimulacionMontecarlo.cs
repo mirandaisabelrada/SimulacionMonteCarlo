@@ -31,7 +31,7 @@ namespace SimulacionMonteCarlo.Clase
                 panel.Panel5 = valor_aleatorio.Next(minimo, maximo);
                 aleatorios.Add(panel.Panel1);
                 aleatorios.Add(panel.Panel2);
-                aleatorios.Add(panel.Panel3 );
+                aleatorios.Add(panel.Panel3);
                 aleatorios.Add(panel.Panel4);
                 aleatorios.Add(panel.Panel5);
                 aleatorios.Sort();

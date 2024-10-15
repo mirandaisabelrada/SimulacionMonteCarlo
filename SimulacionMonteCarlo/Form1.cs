@@ -78,6 +78,19 @@ namespace SimulacionMonteCarlo
                 dataGridView1.Rows[i].Cells[Int32.Parse(numeroColumna6) - 1].Value = (lista[i].Panel5).ToString();
                 dataGridView1.Rows[i].Cells[Int32.Parse(numeroColumna7) - 1].Value = (lista[i].PanelE).ToString();
             }
+            int suma = 0;
+            int contador = 0;
+            for (int j = 0; j < dataGridView1.Rows.Count; j++)
+            {
+                suma += Convert.ToInt32(dataGridView1.Rows[j].Cells[5].Value);
+                contador++;
+            }
+            //label1.Text = (suma/contador).ToString();
+            dataGridView1.Rows.Add();
+            //dataGridView1.Rows.Add(numeroColumna0, "Promedio");
+            dataGridView1.Rows[lista.Count].Cells[0].Value= "Promedio";
+            dataGridView1.Rows[lista.Count].Cells[Int32.Parse(numeroColumna7) - 1].Value = (suma / contador).ToString();
+            
         }
 
 
