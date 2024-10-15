@@ -37,6 +37,8 @@
             textBox3 = new TextBox();
             label4 = new Label();
             textBox4 = new TextBox();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -114,11 +116,21 @@
             textBox4.Size = new Size(200, 39);
             textBox4.TabIndex = 7;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(633, 202);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 82;
+            dataGridView1.Size = new Size(480, 300);
+            dataGridView1.TabIndex = 9;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1143, 593);
+            Controls.Add(dataGridView1);
             Controls.Add(label4);
             Controls.Add(textBox4);
             Controls.Add(label3);
@@ -130,6 +142,7 @@
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -145,5 +158,6 @@
         private TextBox textBox3;
         private Label label4;
         private TextBox textBox4;
+        private DataGridView dataGridView1;
     }
 }

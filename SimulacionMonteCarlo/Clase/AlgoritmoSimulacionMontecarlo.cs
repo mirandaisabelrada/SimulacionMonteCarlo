@@ -10,40 +10,48 @@ namespace SimulacionMonteCarlo.Clase
     public class AlgoritmoSimulacionMontecarlo
     {
         public AlgoritmoSimulacionMontecarlo() { }
-        public (int Media, int Varianza) Simulacion(int n,int n1, int minimo, int maximo, Random valor_aleatorio)
+        public List<Asignacion> Simulacion(int n, int minimo, int maximo, Random valor_aleatorio)
         {
-            int v_aleatorio = 0;
+            //int v_aleatorio = 0;
             int x_b=0;
             int v_b = 0;
             List<int> aleatorios = new List<int>();
-            List<int> cuartos = new List<int>();
-            List<int> cuadrados = new List<int>();
-            int cuarto = 0;
+            //List<int> cuartos = new List<int>();
+            //List<int> cuadrados = new List<int>();
+            List<Asignacion> Paneles = new List<Asignacion>();
+            //int cuarto = 0;
             for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < n1; j++)
-                {
-                    v_aleatorio = valor_aleatorio.Next(minimo, maximo);
-                    aleatorios.Add(v_aleatorio);
-                }
+                Asignacion panel = new Asignacion();
+                panel.IdPunto = i;
+                panel.Panel1 = valor_aleatorio.Next(minimo, maximo);
+                panel.Panel2 = valor_aleatorio.Next(minimo, maximo);
+                panel.Panel3 = valor_aleatorio.Next(minimo, maximo);
+                panel.Panel4 = valor_aleatorio.Next(minimo, maximo);
+                panel.Panel5 = valor_aleatorio.Next(minimo, maximo);
+                aleatorios.Add(panel.Panel1);
+                aleatorios.Add(panel.Panel2);
+                aleatorios.Add(panel.Panel3 );
+                aleatorios.Add(panel.Panel4);
+                aleatorios.Add(panel.Panel5);
                 aleatorios.Sort();
                 if (aleatorios.Count > 3)
                 {
-                    cuarto = aleatorios[aleatorios.Count - 2];
-                    cuartos.Add(cuarto);
-                    cuadrados.Add(cuarto*cuarto);
+                    panel.PanelE = aleatorios[aleatorios.Count - 2];
+                    //cuartos.Add(panel.PanelE);
+                    //cuadrados.Add(panel.PanelE * panel.PanelE);
                 }
                 else
                 {
-                    cuarto = aleatorios[aleatorios.Count - 1];
-                    cuartos.Add(cuarto);
-                    cuadrados.Add(cuarto * cuarto);
+                    panel.PanelE = aleatorios[aleatorios.Count - 1];
+                    //cuartos.Add(panel.PanelE);
+                    //cuadrados.Add(panel.PanelE * panel.PanelE);
                 }
-               
-            x_b = cuartos.Sum();
-            v_b = cuadrados.Sum();
+            Paneles.Add(panel);
+            //x_b = cuartos.Sum();
+            //v_b = cuadrados.Sum();
             }
-            return (x_b, v_b);
+            return Paneles;
         }
     }
 }
