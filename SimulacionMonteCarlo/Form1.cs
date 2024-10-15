@@ -26,7 +26,7 @@ namespace SimulacionMonteCarlo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Equals("") || textBox2.Text.Equals(""))
+            if (textBox1.Text.Equals("") || textBox2.Text.Equals("") || textBox3.Text.Equals("") || textBox4.Text.Equals(""))
             {
                 MessageBox.Show("Este valor tiene que ser mayor que 0, no debe estar vacio");
                 return;
@@ -40,7 +40,7 @@ namespace SimulacionMonteCarlo
             (int x_b, int v_b) = sim.Simulacion(n, n1, minimo, maximo, valor_aleatorio);
             x_b = x_b/n;
             v_b = v_b / (n * (n - 1)) - ((x_b * x_b) / (n - 1));
-            MessageBox.Show("El valor de X_barra es:" + x_b + "\n"+ "El valor de V_barra es:" + v_b + "\n");
+            MessageBox.Show("El valor de X_barra es: " + x_b + "\n"+ "El valor de V_barra es: " + v_b + "\n");
 
 
 

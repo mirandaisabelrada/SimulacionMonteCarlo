@@ -17,6 +17,7 @@ namespace SimulacionMonteCarlo.Clase
             int v_b = 0;
             List<int> aleatorios = new List<int>();
             List<int> cuartos = new List<int>();
+            List<int> cuadrados = new List<int>();
             int cuarto = 0;
             for (int i = 0; i < n; i++)
             {
@@ -30,15 +31,17 @@ namespace SimulacionMonteCarlo.Clase
                 {
                     cuarto = aleatorios[aleatorios.Count - 2];
                     cuartos.Add(cuarto);
+                    cuadrados.Add(cuarto*cuarto);
                 }
                 else
                 {
                     cuarto = aleatorios[aleatorios.Count - 1];
                     cuartos.Add(cuarto);
+                    cuadrados.Add(cuarto * cuarto);
                 }
                
             x_b = cuartos.Sum();
-            v_b = v_b + (cuarto*cuarto);
+            v_b = cuadrados.Sum();
             }
             return (x_b, v_b);
         }
