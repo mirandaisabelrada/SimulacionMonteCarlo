@@ -77,20 +77,28 @@ namespace SimulacionMonteCarlo
                 dataGridView1.Rows[i].Cells[Int32.Parse(numeroColumna6) - 1].Value = (lista[i].Panel5).ToString();
                 dataGridView1.Rows[i].Cells[Int32.Parse(numeroColumna7) - 1].Value = (lista[i].PanelE).ToString();
             }
-            int suma = 0;
-            int contador = 0;
-            for (int j = 0; j < dataGridView1.Rows.Count; j++)
-            {
-                suma += Convert.ToInt32(dataGridView1.Rows[j].Cells[Int32.Parse(numeroColumna7) - 1].Value);
-                contador++;
-            }
-            //label1.Text = (suma/contador).ToString();
             dataGridView1.Rows.Add();
-            //dataGridView1.Rows.Add(numeroColumna0, "Promedio");
             dataGridView1.Rows[lista.Count].Cells[0].Value = "Promedio";
-            dataGridView1.Rows[lista.Count].Cells[Int32.Parse(numeroColumna7) - 1].Value = (suma/(contador-1)).ToString();
+            //int suma = 0;
+            // int contador = 0;
+            for (int j = 1; j < dataGridView1.Columns.Count; j++)
+            {
+                int contador = 0;
+                int suma = 0; 
+                for (int m = 0; m < dataGridView1.Rows.Count; m++)
+                {
+                    suma += Convert.ToInt32(dataGridView1.Rows[m].Cells[j].Value);
+                    contador=m;
+                }
+                dataGridView1.Rows[lista.Count].Cells[j].Value = (suma / (dataGridView1.Rows.Count-2)).ToString();
+            }
+                //label1.Text = (suma/contador).ToString();
 
-        }
+                //dataGridView1.Rows.Add(numeroColumna0, "Promedio");
+
+
+
+            }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
