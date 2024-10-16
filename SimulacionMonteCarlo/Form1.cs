@@ -83,12 +83,10 @@ namespace SimulacionMonteCarlo
             // int contador = 0;
             for (int j = 1; j < dataGridView1.Columns.Count; j++)
             {
-                int contador = 0;
                 int suma = 0; 
                 for (int m = 0; m < dataGridView1.Rows.Count; m++)
                 {
                     suma += Convert.ToInt32(dataGridView1.Rows[m].Cells[j].Value);
-                    contador=m;
                 }
                 dataGridView1.Rows[lista.Count].Cells[j].Value = (suma / (dataGridView1.Rows.Count-2)).ToString();
             }
