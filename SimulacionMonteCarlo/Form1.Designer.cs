@@ -32,12 +32,11 @@
             textBox1 = new TextBox();
             label1 = new Label();
             label2 = new Label();
-            textBox2 = new TextBox();
             label3 = new Label();
             textBox3 = new TextBox();
-            label4 = new Label();
             textBox4 = new TextBox();
             dataGridView1 = new DataGridView();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -71,23 +70,16 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(28, 298);
+            label2.Location = new Point(28, 203);
             label2.Name = "label2";
             label2.Size = new Size(97, 32);
             label2.TabIndex = 4;
             label2.Text = "Minimo";
             // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(369, 202);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(200, 39);
-            textBox2.TabIndex = 3;
-            // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(28, 395);
+            label3.Location = new Point(28, 300);
             label3.Name = "label3";
             label3.Size = new Size(100, 32);
             label3.TabIndex = 6;
@@ -95,23 +87,14 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(369, 298);
+            textBox3.Location = new Point(369, 203);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(200, 39);
             textBox3.TabIndex = 5;
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(28, 202);
-            label4.Name = "label4";
-            label4.Size = new Size(252, 32);
-            label4.TabIndex = 8;
-            label4.Text = "Cantidad de columnas";
-            // 
             // textBox4
             // 
-            textBox4.Location = new Point(369, 392);
+            textBox4.Location = new Point(369, 297);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(200, 39);
             textBox4.TabIndex = 7;
@@ -122,21 +105,31 @@
             dataGridView1.Location = new Point(633, 202);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.Size = new Size(480, 300);
+            dataGridView1.Size = new Size(878, 587);
             dataGridView1.TabIndex = 9;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(1546, 203);
+            button2.Name = "button2";
+            button2.Size = new Size(150, 46);
+            button2.TabIndex = 10;
+            button2.Text = "Descargar";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 593);
+            ClientSize = new Size(1770, 834);
+            Controls.Add(button2);
             Controls.Add(dataGridView1);
-            Controls.Add(label4);
             Controls.Add(textBox4);
             Controls.Add(label3);
             Controls.Add(textBox3);
             Controls.Add(label2);
-            Controls.Add(textBox2);
             Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(button1);
@@ -153,11 +146,10 @@
         private TextBox textBox1;
         private Label label1;
         private Label label2;
-        private TextBox textBox2;
         private Label label3;
         private TextBox textBox3;
-        private Label label4;
         private TextBox textBox4;
         private DataGridView dataGridView1;
+        private Button button2;
     }
 }

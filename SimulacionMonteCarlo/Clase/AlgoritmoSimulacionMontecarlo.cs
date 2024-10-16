@@ -16,8 +16,6 @@ namespace SimulacionMonteCarlo.Clase
             int x_b=0;
             int v_b = 0;
             List<int> aleatorios = new List<int>();
-            //List<int> cuartos = new List<int>();
-            //List<int> cuadrados = new List<int>();
             List<Asignacion> Paneles = new List<Asignacion>();
             //int cuarto = 0;
             for (int i = 0; i < n; i++)
@@ -47,9 +45,8 @@ namespace SimulacionMonteCarlo.Clase
                     //cuartos.Add(panel.PanelE);
                     //cuadrados.Add(panel.PanelE * panel.PanelE);
                 }
-            Paneles.Add(panel);
-            //x_b = cuartos.Sum();
-            //v_b = cuadrados.Sum();
+                aleatorios.Clear();
+            Paneles.Add(panel);   
             }
             return Paneles;
         }

@@ -26,13 +26,12 @@ namespace SimulacionMonteCarlo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Equals("") || textBox2.Text.Equals("") || textBox3.Text.Equals("") || textBox4.Text.Equals(""))
+            if (textBox1.Text.Equals("") || textBox3.Text.Equals("") || textBox4.Text.Equals(""))
             {
                 MessageBox.Show("Este valor tiene que ser mayor que 0, no debe estar vacio");
                 return;
             }
             int n = Convert.ToInt32(textBox1.Text);
-            int n1 = Convert.ToInt32(textBox2.Text);
             int minimo = Convert.ToInt32(textBox3.Text);
             int maximo = Convert.ToInt32(textBox4.Text);
             Random valor_aleatorio = new Random();
@@ -82,17 +81,53 @@ namespace SimulacionMonteCarlo
             int contador = 0;
             for (int j = 0; j < dataGridView1.Rows.Count; j++)
             {
-                suma += Convert.ToInt32(dataGridView1.Rows[j].Cells[5].Value);
+                suma += Convert.ToInt32(dataGridView1.Rows[j].Cells[Int32.Parse(numeroColumna7) - 1].Value);
                 contador++;
             }
             //label1.Text = (suma/contador).ToString();
             dataGridView1.Rows.Add();
             //dataGridView1.Rows.Add(numeroColumna0, "Promedio");
-            dataGridView1.Rows[lista.Count].Cells[0].Value= "Promedio";
-            dataGridView1.Rows[lista.Count].Cells[Int32.Parse(numeroColumna7) - 1].Value = (suma / contador).ToString();
-            
+            dataGridView1.Rows[lista.Count].Cells[0].Value = "Promedio";
+            dataGridView1.Rows[lista.Count].Cells[Int32.Parse(numeroColumna7) - 1].Value = (suma/(contador-1)).ToString();
+
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DescargaExcel(dataGridView1);
+        }
+        public void DescargaExcel(DataGridView data)
+        {
+            // Paso 0: Instalar complemento de excel 
+            Microsoft.Office.Interop.Excel.Application exportarExcel = new Microsoft.Office.Interop.Excel.Application();
+            exportarExcel.Application.Workbooks.Add(true);
+            int indiceColumna = 0;
+            // Paso 1: Construyes columnas y los nombres de las cabeceras 
+            foreach (DataGridViewColumn columna in data.Columns)
+            {
+                indiceColumna++;
+                exportarExcel.Cells[1, indiceColumna] = columna.HeaderText;
+            }
+            // Paso 2: Construyes filas y llenas valores 
+            int indiceFilas = 0;
+            foreach (DataGridViewRow fila in data.Rows)
+            {
+                indiceFilas++;
+                indiceColumna = 0;
+                foreach (DataGridViewColumn columna in data.Columns)
+                {
+                    indiceColumna++;
+                    exportarExcel.Cells[indiceFilas + 1, indiceColumna] = fila.Cells[columna.Name].Value;
+                }
+            }
+            // Paso 3: visibilidad 
+            exportarExcel.Visible = true;
+        }
 
     }
 }
